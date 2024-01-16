@@ -38,11 +38,11 @@ const Posts = () => {
 
   return (
     <div className="flex flex-col  items-center justify-center w-full overflow-auto no-scrollbar mb-8">
-      <div className="mb-2 sm:my-4 md:ml-0 lg:mb-4 lg:mt-8 lg:ml-0 flex justify-between items-end w-full sm:w-[calc(100%-3rem)]">
+      <div className="mb-2 sm:my-4 md:ml-0 lg:mb-4 lg:mt-8 lg:ml-0 xl:mt-[2.75rem] flex justify-between items-end w-full sm:w-[calc(100%-3rem)]">
         <CreatePostModal userId={selectedUser.id} name={selectedUser.name} />
         <div className="flex gap-2 items-center">
           {(isLoading || isFetching) && <CircularProgress size={'1rem'} />}
-          <span className="max-w-[200px] sm:max-w-[300px] md:max-w-max text-2xl font-medium underline underline-offset-2 text-center">
+          <span className="max-w-[200px] sm:max-w-[300px] md:max-w-max text-2xl lg:text-3xl font-medium underline underline-offset-2 text-center">
             {selectedUser.name}'s Posts
           </span>
         </div>
