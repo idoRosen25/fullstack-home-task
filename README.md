@@ -50,5 +50,10 @@ Start the server
   cd server && npm run start:dev
 ```
 
+* Use the following line to install deps and init db in a single command:
+* This command needs to be run from root directory
+```bash
+  cd client && npm install && cd ../server && npm i && npm run init:db && cd ..
+```
 * Client is running on `http://localhost:3001`
 * Server is running on `http://localhost:3000`

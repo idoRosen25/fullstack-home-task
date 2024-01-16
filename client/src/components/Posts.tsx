@@ -1,14 +1,14 @@
 import { CircularProgress, Typography } from '@mui/material';
-import { useGetPostsQuery } from '../app/api/posts';
-import { addAlert, setSelectedUser } from '../app/features/post/postSlice';
-import { useAppDispatch } from '../app/hooks';
+import { useGetPostsQuery } from '../redux/api/posts';
+import { addAlert, setSelectedUser } from '../redux/features/post/postSlice';
+import { useAppDispatch } from '../redux/hooks';
 import useSelectedUser from '../hooks/useSelectedUser';
 import CardGrid from './CardGrid';
 import CreatePostModal from './CreatePostModal';
 import { useEffect } from 'react';
 import { AlertTypes } from '../types';
 
-const Posts = () => {
+const PostsList = () => {
   const selectedUser = useSelectedUser();
   const dispatch = useAppDispatch();
   const {
@@ -66,4 +66,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default PostsList;

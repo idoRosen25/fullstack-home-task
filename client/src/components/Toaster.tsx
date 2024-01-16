@@ -1,8 +1,8 @@
 import { Alert, AlertTitle } from '@mui/material';
 import { AlertProps } from '../types';
 import { useEffect } from 'react';
-import { useAppDispatch } from '../app/hooks';
-import { removeAlert } from '../app/features/post/postSlice';
+import { useAppDispatch } from '../redux/hooks';
+import { removeAlert } from '../redux/features/post/postSlice';
 
 const Toaster: React.FC<AlertProps> = ({ id, type, text }) => {
   const dispatch = useAppDispatch();

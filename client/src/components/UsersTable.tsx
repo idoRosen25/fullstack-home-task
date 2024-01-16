@@ -1,11 +1,11 @@
 import { DataTable } from './DataTable';
 import { AlertTypes, JpUser } from '../types';
 import { useUsersColumns } from '../hooks/useUsersColumns';
-import { useAppDispatch } from '../app/hooks';
+import { useAppDispatch } from '../redux/hooks';
 import useSelectedUser from '../hooks/useSelectedUser';
-import { addAlert, setSelectedUser } from '../app/features/post/postSlice';
+import { addAlert, setSelectedUser } from '../redux/features/post/postSlice';
 import { CircularProgress } from '@mui/material';
-import { useGetUsersQuery } from '../app/api/users';
+import { useGetUsersQuery } from '../redux/api/users';
 import { useEffect } from 'react';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 

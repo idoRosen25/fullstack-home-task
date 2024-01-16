@@ -1,4 +1,4 @@
-import { useAppSelector } from '../app/hooks';
+import { useAppSelector } from '../redux/hooks';
 
 const useSelectedUser = () =>
   useAppSelector((state) => state.posts.selectedUser);

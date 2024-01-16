@@ -1,6 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import './App.css';
-import { useAppSelector } from './app/hooks';
+import { useAppSelector } from './redux/hooks';
 import Posts from './components/Posts';
 import Toaster from './components/Toaster';
 import UsersTable from './components/UsersTable';

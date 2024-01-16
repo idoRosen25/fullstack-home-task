@@ -11,13 +11,13 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { AlertTypes, CreatePostSchema } from '../types';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import {
   addAlert,
   setIsCreatePostModalOpen,
-} from '../app/features/post/postSlice';
+} from '../redux/features/post/postSlice';
 import { isDesktop } from 'react-device-detect';
-import { useCreatePostMutation } from '../app/api/posts';
+import { useCreatePostMutation } from '../redux/api/posts';
 
 type Props = {
   userId: number;

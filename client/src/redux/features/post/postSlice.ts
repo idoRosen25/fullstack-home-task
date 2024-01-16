@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AlertProps, JpUser, Post } from '../../../types';
+import { AlertProps, JpUser } from '../../../types';
 
 interface PostsState {
-  posts: Post[];
   selectedUser: JpUser | null;
   isCreatePostModalOpen: boolean;
   alerts: AlertProps[];
 }
 
 const initialState: PostsState = {
-  posts: [],
   selectedUser: null,
   isCreatePostModalOpen: false,
   alerts: [],

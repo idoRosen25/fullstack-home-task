@@ -27,6 +27,11 @@ export class PostsService {
         `User does not exist with id: ${userId}`,
       );
     }
+
+    if (!(title && body)) {
+      throw new CustomBadRequestException(`Missing data for post`);
+    }
+
     const postEntity = await dataManager.create(PostEntity, {
       userId,
       title,
@@ -104,7 +109,7 @@ export class PostsService {
     return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
       .then((res) => res.status !== 404)
       .catch((error) => {
-        console.error('error in chekc user id: ', error);
+        console.error('error in check user id: ', error);
         return false;
       });
   }
