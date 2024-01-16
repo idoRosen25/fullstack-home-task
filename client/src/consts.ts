@@ -1,0 +1,1 @@
+export const MIN_DUAL_DISPLAY_WIDTH = 1280;
