@@ -38,6 +38,12 @@ Start the client
   cd client && npm run dev
 ```
 
+Init the local DB
+
+```bash
+  cd server && npm run init:db
+```
+
 Start the server
 
 ```bash
