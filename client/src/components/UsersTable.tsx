@@ -35,8 +35,9 @@ const UsersTable = () => {
     }
   }, [dispatch, isError]);
 
+  //  In a full scale production app we’d probably try to avoid this effect using the table event handlers, but it would require more infra
   useEffect(() => {
-    if (!selectedUser) {
+    if (table.getIsSomeRowsSelected() && !selectedUser) {
       table.resetRowSelection(true);
     }
   }, [selectedUser, table]);
