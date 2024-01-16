@@ -92,14 +92,18 @@ const CreatePostModal: React.FC<Props> = ({ userId, name }) => {
       <Button
         variant="contained"
         color="primary"
-        className="z-10"
+        sx={{
+          zIndex: 10,
+          fontSize: '10px',
+          width: 'max-content',
+        }}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
           dispatch(setIsCreatePostModalOpen(true));
         }}
       >
-        Create post
+        New post
       </Button>
       <Modal
         open={isModalOpen}

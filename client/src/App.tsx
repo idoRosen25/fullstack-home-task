@@ -39,7 +39,7 @@ function App() {
         >
           <UsersTable />
         </section>
-        <section className="col-span-3 lg:-mt-[52px]">
+        <section className="sm:col-span-4 md:col-span-3 lg:-mt-[52px]">
           <Posts />
         </section>
       </div>
