@@ -7,14 +7,21 @@ import { addAlert, setSelectedUser } from '../app/features/post/postSlice';
 import { CircularProgress } from '@mui/material';
 import { useGetUsersQuery } from '../app/api/users';
 import { useEffect } from 'react';
+import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
 const UsersTable = () => {
   const dispatch = useAppDispatch();
   const selectedUser = useSelectedUser();
 
-  const { data, isLoading, isError } = useGetUsersQuery('');
+  const { data: usersData, isLoading, isError } = useGetUsersQuery('');
 
   const columns = useUsersColumns();
+
+  const table = useReactTable({
+    data: usersData,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
 
   useEffect(() => {
     if (isError) {
@@ -27,14 +34,20 @@ const UsersTable = () => {
       );
     }
   }, [dispatch, isError]);
+
+  useEffect(() => {
+    if (!selectedUser) {
+      table.resetRowSelection(true);
+    }
+  }, [selectedUser, table]);
+
   if (isLoading) {
     return <CircularProgress size="3rem" />;
   }
 
   return (
     <DataTable
-      data={isError ? [] : data}
-      columns={columns}
+      table={table}
       onRowClick={(user: JpUser) =>
         dispatch(setSelectedUser(user.id === selectedUser?.id ? null : user))
       }

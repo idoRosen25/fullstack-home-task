@@ -1,12 +1,7 @@
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { Table, flexRender } from '@tanstack/react-table';
 
 import {
-  Table,
+  Table as MuiTable,
   TableBody,
   TableCell,
   TableHead,
@@ -14,27 +9,16 @@ import {
 } from '@mui/material';
 import { Paper, TableContainer } from '@mui/material';
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+interface DataTableProps<TData> {
+  table: Table<TData>;
   onRowClick?: (row: TData) => void;
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-  onRowClick,
-}: DataTableProps<TData, TValue>) {
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
-
+export function DataTable<TData>({ table, onRowClick }: DataTableProps<TData>) {
   return (
     <div className="rounded-md w-full 2xl:min-w-[720px]">
       <TableContainer component={Paper}>
-        <Table className="w-full caption-bottom text-sm">
+        <MuiTable className="w-full caption-bottom text-sm">
           <TableHead className="&_tr]:border-b">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
@@ -89,16 +73,11 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
+                <TableCell className="h-24 text-center">No results.</TableCell>
               </TableRow>
             )}
           </TableBody>
-        </Table>
+        </MuiTable>
       </TableContainer>
     </div>
   );
